@@ -1,0 +1,20 @@
+Function DijkstraOptimized(Graph, Source):
+    Initialize distance[ ] to ∞ for all vertices
+    Set distance[Source] = 0
+    Create a Min-Priority Queue PQ
+    Insert (0, Source) into PQ
+
+    While PQ is not empty:
+        (currentDist, currentNode) = Extract-Min(PQ)
+
+        If currentDist > distance[currentNode]:
+            Continue
+        
+        For each neighbor (nextNode, weight) in Graph[currentNode]:
+            newDist = currentDist + weight
+
+            If newDist < distance[nextNode]:
+                distance[nextNode] = newDist
+                Insert (newDist, nextNode) into PQ
+
+    Return distance[ ]
